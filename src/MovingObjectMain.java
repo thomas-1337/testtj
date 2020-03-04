@@ -1,3 +1,5 @@
+// von Petra und Thomas
+/*
 public class MovingObjectMain {
     public static void main(String[] args) {
         MovingObject o = new MovingObject(0,0,100,100);
@@ -15,3 +17,4 @@ public class MovingObjectMain {
 
     }
 }
+*/
