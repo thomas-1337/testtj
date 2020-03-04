@@ -1,4 +1,4 @@
-public class HelloWorld {
+public class Entry {
     public static void main(String[] args) {
         Person p = new Person("Thomas","Jungmann");
 
