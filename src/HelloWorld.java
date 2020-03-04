@@ -1,26 +1,22 @@
 public class HelloWorld {
     public static void main(String[] args) {
-        Person p = new Person();
+        Person p = new Person("Thomas","Jungmann");
 
-        p.name = "Max";
-        p.nr   = 123;
-        p.printPerson();
+        System.out.println(p.getFullName());
 
-        Person.test();
     }
 }
 
 class Person {
-    String name;
-    int nr;
+    private String lastName;
+    private String firstName;
 
-    public void printPerson () {
-        System.out.println("My name is: " + name);
-        System.out.println("My number is: " + nr);
+    public Person(String f, String l) {
+        firstName = f;
+        lastName = l;
     }
 
-    public static void test() {
-        System.out.println("I'm static");
+    String getFullName(){
+        return firstName + " " + lastName;
     }
-
 }
