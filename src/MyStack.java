@@ -1,5 +1,3 @@
-import com.sun.xml.internal.ws.util.StringUtils;
-
 public class MyStack implements StackLike {
     private int[] stack = new int[100];
     private int count;
