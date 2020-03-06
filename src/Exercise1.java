@@ -1,34 +1,19 @@
+import javax.xml.stream.XMLEventReader;
+import javax.xml.stream.XMLInputFactory;
+import javax.xml.stream.XMLStreamException;
 import java.io.*;
 
 public class Exercise1 {
-    public static void main(String[] args) {
-        File file = new File("test.txt");
-        File file_target = new File("test_copy.txt");
+    public static void main(String[] args) throws IOException {
+        try(InputStream in = new FileInputStream(".idea/workspace.xml")) {
+            XMLInputFactory factory = XMLInputFactory.newFactory();
+            XMLEventReader parser = factory.createXMLEventReader(in);
 
-        System.out.println(file.getAbsoluteFile());
-
-        try {
-            FileReader fr = new FileReader(file);
-            BufferedReader bfr = new BufferedReader(fr);
-
-            FileWriter fw = new FileWriter(file_target);
-            PrintWriter pw = new PrintWriter(fw);
-
-            String line;
-            while ((line = bfr.readLine()) != null) {
-                pw.println(line.toUpperCase());
-                pw.flush();
+            while (parser.hasNext()) {
+                System.out.println(parser.nextEvent());
             }
-
-            bfr.close();
-            fr.close();
-
-            pw.close();
-            fw.close();
-
-        } catch (IOException e) {
+        } catch (XMLStreamException e) {
             e.printStackTrace();
         }
-
     }
 }
