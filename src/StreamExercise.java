@@ -84,6 +84,8 @@ public class StreamExercise {
         // Example: (u1, u2) -> u1.getFirstName().compareTo(...)
 
         List<User> sortedByFirstName = users.stream().sorted((User u1, User u2) -> u1.getFirstName().compareTo(u2.getFirstName())).collect(Collectors.toList());
+        // List<User> sortedByFirstName = users.stream().sorted(Comparator.comparing(User::getFirstName)).collect(Collectors.toList());
+        // List<User> sortedByFirstName = users.stream().sorted(Comparator.comparing(user -> user.getFirstName())).collect(Collectors.toList());
 
         System.out.println(sortedByFirstName);
 
